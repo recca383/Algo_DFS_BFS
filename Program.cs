@@ -12,22 +12,22 @@ namespace Algo_DFS_BFS
         {
             Graph graph = new Graph();
 
-            graph.AddEdge('A', 'B', 3);
-            graph.AddEdge('A', 'C', 2);
-            graph.AddEdge('B', 'F', 2);
-            graph.AddEdge('B', 'G', 3);
-            graph.AddEdge('C', 'D', 4);
-            graph.AddEdge('C', 'E', 2);
-            graph.AddEdge('E', 'F', 5);
-            graph.AddEdge('F', 'I', 1);
-            graph.AddEdge('F', 'H', 3);
-            graph.AddEdge('A', 'B', 3);
+            graph.AddEdge('A', 'B');
+            graph.AddEdge('A', 'C');
+            graph.AddEdge('B', 'F');
+            graph.AddEdge('B', 'G');
+            graph.AddEdge('C', 'D');
+            graph.AddEdge('C', 'E');
+            graph.AddEdge('E', 'F');
+            graph.AddEdge('F', 'I');
+            graph.AddEdge('F', 'H');
+            graph.AddEdge('A', 'B');
 
             Console.Write("BFS : ");
-            graph.BFS('B');
+            graph.BFS('A');
             Console.WriteLine();
             Console.Write("DFS : ");
-            graph.DFS('B');
+            graph.DFS('A');
         }
     }
 }

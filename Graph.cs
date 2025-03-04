@@ -9,24 +9,23 @@ namespace Algo_DFS_BFS
 {
     class Graph
     {
-        private Dictionary<char, List<(char, int)>> _graph;
-        private List<int>[] adj;
+        private Dictionary<char, List<char>> _graph;
         public Graph()
         {
-            _graph = new Dictionary<char, List<(char, int)>>();
+            _graph = new Dictionary<char, List<char>>();
         }
 
         public void AddVertex(char vertex)
         {
             if (!_graph.ContainsKey(vertex))
-                _graph[vertex] = new List<(char, int)>();
+                _graph[vertex] = new List<char>();
         }
-        public void AddEdge(char source, char destination, int weight)
+        public void AddEdge(char source, char destination)
         {
             if(!_graph.ContainsKey(source)) AddVertex(source);
             if(!_graph.ContainsKey(destination)) AddVertex(destination);
 
-            _graph[source].Add((destination, weight));
+            _graph[source].Add(destination);
         }
         public void BFS(char root)
         {
@@ -45,10 +44,10 @@ namespace Algo_DFS_BFS
 
                 foreach(var next in _graph[curr])
                 {
-                    if(!visited.Contains(next.Item1))
+                    if(!visited.Contains(next))
                     {
-                        visited.Add(next.Item1);
-                        queue.Enqueue(next.Item1);
+                        visited.Add(next);
+                        queue.Enqueue(next);
                     }
                 }
             }
@@ -69,7 +68,7 @@ namespace Algo_DFS_BFS
 
             foreach(var next in _graph[node])
             {
-                DFS_CallStack(next.Item1, visited);
+                DFS_CallStack(next, visited);
             }
         }
     }
